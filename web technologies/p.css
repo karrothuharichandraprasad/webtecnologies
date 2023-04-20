@@ -1,0 +1,26 @@
+*{
+    background-color: gold;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+    color: coral;
+ }
+ table{
+    border: 2px solid black;
+    column-rule-color: aquamarine;
+    border-collapse: collapse;
+    align-items: center;
+ }
+th{
+    background-color: aqua;
+    height: 30px;
+}
+* {
+    box-sizing: border-box;
+ }
+ .imageColumn {
+    float: left;
+    width: 20%;
+    padding: 10px;
+ }

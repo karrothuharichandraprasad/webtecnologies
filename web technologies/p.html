@@ -1,0 +1,179 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bill Generation</title>
+  <link rel="stylesheet" href="p.css">
+</head>
+<body>
+
+  <div class="pricelist">
+    <h1>MILK SHAKES</h1>
+    <div class="alignRow">
+      <div class="imageColumn">
+      <figure>
+      <img src="vanilla.jpg" alt="vanilla" style="width:50%" title="VANILLA MILK SHAKE">
+      <figcaption>Vanilla milkshake</figcaption>
+      </figure>
+      </div>
+      <div class="imageColumn">
+        <figure>
+      <img src="straw.jpg" alt="straw" style="width:50%" title="STRAWBERRY MILK SHAKE">
+      <figcaption>strawberry milkshake</figcaption>
+        </figure>
+    </div>
+      <div class="imageColumn">
+        <figure>
+      <img src="oreo.jpg" alt="oreo" style="width:45%" title="OREO MILK SHAKE">
+      <figcaption>Oreo milkshake</figcaption>
+      </figure>
+      </div>
+      <div class="imageColumn">
+        <figure>
+      <img src="chocolate.jpg" alt="choco" style="width:50%" title="CHOCOLATE MILK SHAKE">
+      <figcaption>Chocolate milkshake</figcaption>
+      </figure>
+      </div>
+      <div class="imageColumn">
+        <figure>
+          <img src="pista.jpg" alt="pista" style="width:50%" title="PISTA SHAKE">
+        <figcaption>Pista Shake</figcaption>
+        </figure>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br>
+      </body>
+      </html>
+      <br><br><br><br><br>
+    <table border="1">
+        <tr>
+            <th>Milk Shakes</th>
+            <th>Rate</th>
+        </tr>
+      <tr>
+        <td>VANILLA MILK SHAKE</td>
+        <td>45/-</td>
+    </tr>
+    <tr>
+        <td>STRAWBERRY SHAKE</td>
+        <td>60/-</td>
+    </tr>
+    <tr>
+        <td>OREO MILK SHAKE</td>
+        <td>60/-</td>
+    </tr>
+        <tr>
+        <td>CHOCOLATE MILK SHAKE</td>
+        <td>50/-</td>
+     
+      </tr>
+      <tr>
+        <td>PISTA SHAKE</td>
+        <td>100/-</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <form class="bill1">
+    <select id="sf">
+  <option selected value = "Vanilla">Vanilla</option>
+  <option value = "strawberry">Strawberry</option>
+  <option value = "Oreo">Oreo</option>
+  <option value = "Chocolate">Chocolate</option>
+  <option value = "Pista">Pista</option>
+</select>
+    <input type="text" id="entrybox" pattern="\d*" placeholder="HOW MANY">&nbsp;<b>qt</b>&nbsp;&nbsp;
+    <input type="button" value="ADD T0 CART" class="mybutton" id="getme">
+  </form>
+  <br><br>
+  <textarea class="bill" cols="100" rows="12" id="writeme"></textarea>
+  <br>
+  <input type="submit" value="CLEAR TEXTAREA" class="mybutton bill3" id="clr">
+  <input type="submit" value="PAY BILL" class="mybutton bill2" id="out">
+  </body>
+
+</html>
+<script>
+   var vanilla = 45;
+    var straw = 60;
+    var oreo = 60;
+    var choco = 50;
+    var pista= 100;
+    var total = 0;
+    var check = 1;
+    var gw;
+    var milkshake;
+    var per_one_item;
+    var adder = document.querySelector("#getme");
+    adder.addEventListener("click", getMe);
+    var by = document.querySelector("#out");
+    by.addEventListener("click", checkOut);
+    var cme = document.querySelector("#clr");
+    cme.addEventListener("click", clearMe);
+
+    function getMe() {
+      milkshake = document.querySelector("#sf").value;
+      per_one_item = parseFloat(document.querySelector("#entrybox").value);
+      gw = document.querySelector("#writeme");
+      if (Number.isNaN(per_one_item) === true) {
+        alert("Only Numbers");
+        check = 0;
+      }
+      else if (per_one_item<0) {
+        alert("Negative value!! @stupid");
+        check = 0;
+      }
+      else{
+        check = 1;
+      }
+      if (check == 1) {
+     
+        switch (milkshake) {
+          case "Vanilla":
+            var va = vanilla * per_one_item;
+            gw.value += "Vanilla  - " + per_one_item + "  = " + va + " rs\r";
+            total += va;
+            per_one_item.value = "";
+            break;
+          case "strawberry":
+            var st = straw * per_one_item;
+            gw.value += "Strawberry - " + per_one_item + " = " + st + " rs\r";
+            total += st;
+            per_one_item.value = "";
+            break;
+          case "Oreo":
+            var or = oreo * per_one_item;
+            gw.value += "Oreo - " + per_one_item + "  = " + or + " rs\r";
+            total += or;
+            per_one_item.value = "";
+            break;
+          case "Chocolate":
+            var ch = choco * per_one_item;
+            gw.value += "Chocolate - " + per_one_item + " = " + ch + " rs\r";
+            total += ch;
+            per_one_item.value = "";
+            break;
+          case "Pista":
+            var pi = pista * per_one_item;
+            gw.value += "Pista - " + per_one_item + " = " + pi + " rs\r";
+            total += pi;
+            per_one_item.value = "";
+            break;
+        }
+
+      }
+    }
+
+    function checkOut() {
+      gw.value += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r";
+      gw.value += "Your Total Bill Is = " + total + " rs Thanks For Shopping! :)\r";
+      gw.value += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r";
+      total = 0;
+    }
+    function clearMe () {
+      gw.value = "";
+    }
+</script>

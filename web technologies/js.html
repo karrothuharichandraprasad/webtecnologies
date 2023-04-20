@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <h1 id="h" onclick="f1()">College name</h1>
+        <img id="i" onclick="f2()" src="a3.jpg"> 
+
+        <p id="p"  onmouseover="f3()">CSE DEPT</p>
+        <br>
+        <div id="d" onclick="f4()">Name</div>
+        <br>
+        <button onclick="f5()">text box</button>
+        <br>
+        <script>
+            function f1()
+            {
+            a=document.getElementById("h")
+            a.style.color="blue";
+            a.innerHTML="Anil Neerukonda Institute Of Tecnology and Sciences"
+            }
+            function f2()
+            {
+            a=document.getElementById("i")
+            a.src="a4.jpg"
+            }
+            function f3()
+            {
+            a=document.getElementById("p")
+            a.style.color="red"
+            a.innerHTML="Computer Science Department"
+            }
+            function f4()
+            {
+                alert("Computer science engineering department")
+            }
+            function f5()
+            {
+                let t1=document.createElement("INPUT");
+                t1.setAttribute("type","text");
+                t1.setAttribute("value","Hi Hello")
+                document.body.appendChild(t1);
+            }
+        </script>
+    </body>
+</html>
